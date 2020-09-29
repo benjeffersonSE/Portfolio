@@ -1,0 +1,448 @@
+body {
+	margin: 0;
+	}
+
+#container{
+	width:100%;	
+	margin:auto;
+	font-family: 'Quicksand', sans-serif;
+	background: rgba(0,0,0,0.9);
+	}
+
+#headbarMobile {
+	top: 0px;
+	font-size: 24px;
+	color: #CCC;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	z-index: 2;
+	visibility: visible;
+	}
+
+#headbarMain {
+	font-size: 20px;
+	color: #CCC;
+	justify-content: center;
+	width: 100%;
+	z-index: 2;
+	display: none;
+	visibility: hidden;
+	}
+
+#headbarSec {
+	font-size: 24px;
+	color: #CCC;
+	justify-content: center;
+	width: 100%;
+	z-index: 1;
+	display: none;
+	visibility: hidden;
+	}
+
+li a
+{
+	margin: auto;
+	font-style: normal;
+	text-decoration: none;
+	color: #FFF;
+	z-index: 1;
+}
+
+ul li a:hover 
+{
+	border-bottom: 2px solid #FF4500;
+	padding-bottom: 2px;
+	transition: all ease-in-out 0.3s;
+}
+
+ul li
+{
+	display: inline;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+#title
+{
+	font-size: 32px;
+}
+
+#content
+{
+	margin-left: 20;
+	margin-right: 20;
+	color: #CCC;
+}
+footer
+{
+	color: #CCC;
+	margin: 0px;
+	bottom: 0px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 80px;
+	padding-left: 80px;
+}
+
+/* This is also my Mobile drop down menu which allows for a simple more visaul pleasing HeadBar for a mobile interface */
+#menuToggle
+{
+  display: block;
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: tomato;
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+
+#littleMenu
+{
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  margin: -50px 0 0 -50px;
+  padding: 50px;
+  top: 0px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu
+{
+  position: absolute;
+  display: block;
+  width: 200px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  top: 153px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+.parallaxMain
+{
+	background-image: url("images/berlinprofile.jpg");
+	min-height:1000px; 
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 0;
+}
+
+.parallaxSec
+{
+	background-image: url("images/micestand.JPG");
+	min-height: 600px; 
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 0;
+}
+
+.parallaxThird
+{
+	background-image: url("images/berlinsky.jpg");
+	min-height: 600px; 
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 0;
+}
+
+.parallaxFourth
+{
+	background-image: url("images/halffacetree.jpg");
+	min-height: 600px; 
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 0;
+}
+
+.parallaxFith
+{
+	background-image: url("images/sidefacetree.png");
+	min-height: 600px; 
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 0;
+}
+.parallaxSixth
+{
+	background-image: url("images/berlingrifwall.jpg");
+	min-height: 600px; 
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: 0;
+}
+
+#textMain
+{
+	min-height: 360px;
+	max-height: 1000px;
+	font-size: 24px;
+	margin: auto;
+	width: 90%;
+	z-index: 2;
+	justify-content: center;
+	padding-bottom: 20px;
+}
+
+#textSec
+{
+	min-height: 700px;
+	max-height: 3000px;
+	font-size: 24px;
+	margin: auto;
+	width: 90%;
+	z-index: 2;
+	justify-content: center;
+}
+
+.row {
+	display: flex;
+  }
+  
+
+.column {
+	flex: 33.33%;
+	padding: 5px;
+  }
+
+video 
+{
+	width: 100%;
+	max-width: 1020px;
+}
+
+img 
+{
+	max-width: 1020px;
+	width: 100%;
+}
+
+.center 
+{
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	padding-bottom: 40px;
+}
+#textdownload 
+{
+	min-height: 360px;
+	max-height: 1000px;
+	font-size: 24px;
+	margin: auto;
+	width: 90%;
+	z-index: 2;
+	justify-content: center;
+	display: flex;
+}
+
+input[type=text], select, textarea {
+	width: 100%;
+	padding: 12px; 
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin-top: 6px;
+	margin-bottom: 16px;
+	background-color: #303030;
+	resize: vertical;
+	color: #CCC;
+  }
+  
+  input[type=submit] {
+	background-color: #008080;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+	background-color: #FF4500;
+  }
+
+  .container {
+	border-radius: 5px;
+	padding-top: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: #008080;
+  }
+
+  @media only screen and (min-width: 975px) 
+  {
+	#headbarMobile {
+		font-size: 24px;
+		color: #CCC;
+		justify-content: center;
+		width: 100%;
+		z-index: 1;
+		display: none;
+		visibility: hidden;
+		}
+	
+	#headbarMain {
+		font-size: 24px;
+		color: #CCC;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		z-index: 1;
+		display: flex;
+		visibility: visible;
+		}
+
+	#headbarSec {
+		font-size: 24px;
+		color: #CCC;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		z-index: 1;
+		visibility: visible;
+		}
+  }
